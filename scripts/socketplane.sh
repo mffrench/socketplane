@@ -442,9 +442,9 @@ container_run() {
     fi
 
     if [ "$attach" = "false" ]; then
-         cid=$(docker run --net=none $@)
+         cid=$(docker run $@)
     else
-         cid=$(docker run --net=none -d $@)
+         cid=$(docker run -d $@)
     fi
 
     cPid=$(docker inspect --format='{{ .State.Pid }}' $cid)
